@@ -15,6 +15,59 @@ export const getSingleMovie = async id => {
     );
     return response.data;
   } catch (error) {
-    alert('фільм не знайдено')
+    alert('фільм не знайдено');
   }
+};
+
+export const getMovies = async () => {
+  try {
+    const response = await axios.get(
+      'https://api.themoviedb.org/3/trending/all/day',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data.results;
+  } catch (error) {
+    alert('Нажаль є якась проблема');
+  }
+};
+
+export const getSearchProducts = async query => {
+  try {
+    const response = await axios.get(
+      ` https://api.themoviedb.org/3/search/movie`,
+      {
+        params: {
+          query,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data.results;
+  } catch (error) {
+    alert('Нажаль є якась проблема');
+  }
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://api.themoviedb.org/3/search/movie',
+  //   params: {query: 'batman', include_adult: 'false', language: 'en-US', page: '1'},
+  //   headers: {
+  //     accept: 'application/json',
+  //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZWEyNDBlY2ViMTYwMjliMjllMjg0YzBkYWM4MjI3MyIsInN1YiI6IjY1ODFiZDAwMGU2NGFmMDgxZWE5M2NiMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.br7v22TADLaN-7tnnXi4kVpaMSdjHVZ5RWzC8GlEWNU'
+  //   }
+  // };
+
+  // axios
+  //   .request(options)
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //   })
+  //   .catch(function (error) {
+  //     console.error(error);
+  //   });
 };

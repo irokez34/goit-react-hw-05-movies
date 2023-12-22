@@ -1,8 +1,6 @@
-import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import './styleComponents/Layout.css';
 export const Layout = () => {
-  const location = useLocation();
-  
   return (
     <div className="container">
       <nav>

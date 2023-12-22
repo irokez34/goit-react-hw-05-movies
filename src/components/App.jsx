@@ -8,7 +8,7 @@ import '../fetch/trendingMovies';
 import { Movie } from 'pages/MovieDetails';
 export const App = () => {
   return (
-    <Routes >
+    <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
