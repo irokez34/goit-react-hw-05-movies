@@ -2,7 +2,8 @@ export const Movies = () =>
 {
   return (
     <div>
-      Movies
+        <input type="text" />
+        <button>Search</button>
     </div>
   )
 }

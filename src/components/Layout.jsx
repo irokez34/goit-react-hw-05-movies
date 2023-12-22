@@ -1,15 +1,21 @@
-import { Outlet,NavLink} from 'react-router-dom';
-
+import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import './styleComponents/Layout.css';
 export const Layout = () => {
+  const location = useLocation();
+  
   return (
-    <div>
+    <div className="container">
       <nav>
-        <ul>
+        <ul className="nav-list">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className="nav-links">
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/movies">Movies</NavLink>
+            <NavLink to="/movies" className="nav-links">
+              Movies
+            </NavLink>
           </li>
         </ul>
       </nav>

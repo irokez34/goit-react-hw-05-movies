@@ -1,0 +1,31 @@
+.movie-list {
+  list-style: none;
+  display: flex;
+  padding: 0 40px;
+  width: 50%;
+  flex-direction: column;
+  gap: 25px;
+}
+.movie-list > li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.movie-img {
+  display: block;
+  height: 250px;
+  width: 350px;
+}
+.container-movie-info {
+  align-items: center;
+  display: flex;
+  justify-content: row;
+}
+.movie-container {
+  margin-top: 40px;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+}
