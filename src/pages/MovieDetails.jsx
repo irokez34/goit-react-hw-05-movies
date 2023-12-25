@@ -25,7 +25,7 @@ export const Movie = () => {
   return (
     <div className="movie-container">
       {isLoading && <Loader />}
-      <MoviesDetailsComponent movie={movie}/>
+      <MoviesDetailsComponent movie={movie} />
     </div>
   );
 };

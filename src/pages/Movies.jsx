@@ -1,18 +1,22 @@
 import Loader from 'components/Loader';
 import MovieList from 'components/MovieList';
+import { SearchForm } from 'components/searchForm';
 
 import { getSearchProducts } from 'fetch/trendingMovies';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
+  const [searchParams] = useSearchParams();
+
   const getMovieWithSearch = useCallback(async query => {
     try {
       setIsLoading(true);
       const resp = await getSearchProducts(query);
+      console.log(resp);
       setMovies(resp);
     } catch (error) {
       alert('Помилка');
@@ -21,29 +25,16 @@ export const Movies = () => {
     }
   }, []);
 
-  const handleChange = ({ target: { value } }) => {
-    setQuery(value);
-  };
-  const handleSubmit = e => {
-    setMovies(null);
-    e.preventDefault();
-    getMovieWithSearch(query);
-  };
+  useEffect(() => {
+    const searchQuery = searchParams.get('query');
+    getMovieWithSearch(searchQuery);
+  }, [searchParams, getMovieWithSearch]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          type="text"
-          name="search"
-          className="movies-search"
-          id="moviesInputSeatch"
-          onChange={handleChange}
-        />
-        <button>Search</button>
-        {isLoading && <Loader />}
-        {movies && <MovieList movies={movies} /> }
-        {!movies && <h2>not found</h2>}
-      </div>
-    </form>
+    <>
+      {isLoading && <Loader />}
+      <SearchForm />
+      {!movies.length ? <h2>not found</h2> : <MovieList movies={movies} />}
+    </>
   );
 };

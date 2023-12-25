@@ -19,7 +19,7 @@
 .container-movie-info {
   align-items: center;
   display: flex;
-  justify-content: row;
+  flex-direction: column;
 }
 .movie-container {
   margin-top: 40px;
@@ -28,4 +28,23 @@ h1,
 h2,
 h3 {
   margin: 0;
+}
+.movie-info
+{
+  list-style: none;
+  display: flex;
+  padding: 0 40px;
+  
+  flex-direction: row;
+  gap: 25px;
+}
+.addition-info 
+{
+  margin-top: 50px;
+  
+}
+.addition-info > ul 
+{
+  display: flex;
+  gap: 10px;
 }

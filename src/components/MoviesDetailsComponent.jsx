@@ -1,10 +1,15 @@
+import { Link, useLocation } from 'react-router-dom';
+
 export const MoviesDetailsComponent = ({ movie }) => {
+  const { state } = useLocation();
   return (
     <>
-      <button>Go back</button>
+      <Link to={state ?? '/'}>
+        <button>Go back</button>
+      </Link>
       {movie && (
         <div className="container-movie-info">
-          <img
+          <div className='movie-info'><img
             src={`https://image.tmdb.org/t/p/w400/${movie.backdrop_path}`}
             alt={movie.title || movie.name}
             className="movie-img"
@@ -22,6 +27,17 @@ export const MoviesDetailsComponent = ({ movie }) => {
               <span>{movie.genres.map(genre => genre.name).join(', ')}</span>
             </li>
           </ul>
+</div>
+          <div className="addition-info">
+            <ul>
+              <Link>
+                <li><h2>Cast</h2></li>
+              </Link>
+              <Link>
+                <li><h2>Reviews</h2></li>
+              </Link>
+            </ul>
+          </div>
         </div>
       )}
     </>
