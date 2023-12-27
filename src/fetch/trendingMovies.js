@@ -64,8 +64,9 @@ export const getActors = async id => {
         },
       }
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
-    alert('фільм не знайдено');
+    alert('Акторів не знайдено');
   }
 }

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [searchParams] = useSearchParams();
@@ -16,7 +16,6 @@ export const Movies = () => {
     try {
       setIsLoading(true);
       const resp = await getSearchProducts(query);
-      console.log(resp);
       setMovies(resp);
     } catch (error) {
       alert('Помилка');
@@ -38,3 +37,4 @@ export const Movies = () => {
     </>
   );
 };
+export default Movies;

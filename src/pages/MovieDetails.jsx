@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import '../pages/stylePages/movieDetails.css';
 import Loader from 'components/Loader';
 import { MoviesDetailsComponent } from 'components/MoviesDetailsComponent';
-export const Movie = () => {
+ const Movie = () => {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
@@ -22,10 +22,12 @@ export const Movie = () => {
     };
     movieId && getMovie();
   }, [movieId]);
+
   return (
     <div className="movie-container">
       {isLoading && <Loader />}
-      <MoviesDetailsComponent movie={movie} />
+      {movie ? <MoviesDetailsComponent movie={movie} /> : <h2>No info</h2>}
     </div>
   );
 };
+export default Movie;
