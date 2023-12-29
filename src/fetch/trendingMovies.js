@@ -81,7 +81,6 @@ export const getReviews = async id => {
         },
       }
     );
-    console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     alert('Відгуків не знайдено');

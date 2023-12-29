@@ -4,7 +4,7 @@ import Loader from 'components/Loader';
 import MovieList from 'components/MovieList';
 import './stylePages/Home.css';
 const Home = () => {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const getAllMovies = async () => {
@@ -18,19 +18,15 @@ const Home = () => {
         setIsLoading(false);
       }
     };
-  
-    if (movies === null) {
-      getAllMovies();
-    }
-  }, [movies]);
-  
+    getAllMovies()
+  }, []);
 
   return (
     <>
       {isLoading && <Loader />}
       <div>
         <h2 className="title">Trending today</h2>
-        {movies && <MovieList movies={movies} />}
+        {movies && movies.length > 0 && <MovieList movies={movies} />}
       </div>
     </>
   );

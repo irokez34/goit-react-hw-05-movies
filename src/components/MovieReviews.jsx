@@ -21,10 +21,8 @@ const MovieReviews = () => {
       }
     };
 
-    if (!review) {
-      getAllReviews();
-    }
-  }, [review, movieId]);
+    getAllReviews();
+  }, [movieId]);
   const reviews =
     review &&
     review.map(author => (
@@ -37,7 +35,11 @@ const MovieReviews = () => {
   return (
     <div className="movie-reviews">
       {isLoading && <Loader />}
-      {review && review.length ? <ul className="reviews-list">{reviews}</ul> : <h2>No Reviews</h2>}
+      {review && review.length ? (
+        <ul className="reviews-list">{reviews}</ul>
+      ) : (
+        <h2>No Reviews</h2>
+      )}
     </div>
   );
 };

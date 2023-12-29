@@ -8,9 +8,9 @@ export const MoviesDetailsComponent = ({ movie }) => {
   const handleBack = () => {
     navigate(state ?? '/', { state: 'go back' });
   };
+
   return (
     <>
-     
       <button onClick={handleBack}>Go back</button>
       <MovieInfo movie={movie} />
       <MovieAdditionInfo />
