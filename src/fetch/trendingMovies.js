@@ -64,9 +64,26 @@ export const getActors = async id => {
         },
       }
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
     alert('Акторів не знайдено');
   }
-}
+};
+
+export const getReviews = async id => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews
+      `,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response.data.results);
+    return response.data.results;
+  } catch (error) {
+    alert('Відгуків не знайдено');
+  }
+};

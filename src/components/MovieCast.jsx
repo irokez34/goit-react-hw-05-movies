@@ -25,9 +25,9 @@ const MovieCast = () => {
       getCast();
     }
   }, [allCast, movieId]);
-  console.log(allCast && allCast.cast.poster_path);
   const defaultImg =
-    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+    
 
   const actors =
     allCast &&
@@ -35,11 +35,11 @@ const MovieCast = () => {
     allCast.cast.map(actor => (
       <li key={actor.id}>
         <img
-          src={
-            actor.profile_path
-              ? `https://image.tmdb.org/t/p/w300/${actor.profile_path}`
-              : defaultImg
-          }
+            src={
+              actor.profile_path
+                ? `https://image.tmdb.org/t/p/w300/${actor.profile_path}`
+                : defaultImg
+            }
           width={150}
           alt="poster"
         />
