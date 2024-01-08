@@ -1,0 +1,2 @@
+.movies-list{grid-gap:10px;display:grid;gap:10px;grid-template-columns:repeat(3,1fr);justify-content:center;margin-top:20px}.movies-item{border:2px solid #000;display:flex;flex-direction:column;padding:10px;text-align:center}
+/*# sourceMappingURL=546.fd7fb8cc.chunk.css.map*/
