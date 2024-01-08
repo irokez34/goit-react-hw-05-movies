@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './styleComponents/MovieList.css';
 const MovieList = ({ movies }) => {
   const location = useLocation();
-  if (!movies) {
+  if (movies.length <= 0) {
     return <p>No avaible films</p>;
   }
 
