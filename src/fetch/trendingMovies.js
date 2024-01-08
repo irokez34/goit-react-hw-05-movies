@@ -29,7 +29,7 @@ export const getMovies = async () => {
         },
       }
     );
-    return response.data.results;
+    return response.data;
   } catch (error) {
     alert('Нажаль є якась проблема');
   }
