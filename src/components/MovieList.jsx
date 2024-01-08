@@ -12,7 +12,6 @@ const MovieList = ({ movies }) => {
         <Link to={`/movies/${movie.id}`} key={movie.id} state={location}>
           <li className="movies-item">
             <span>{movie.title || movie.name}</span>
-            <img src={movie.backdrop_path} alt="" />
           </li>
         </Link>
       ))}
