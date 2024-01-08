@@ -12,9 +12,7 @@ const Home = () => {
         setIsLoading(true);
         const data = await getMovies();
 
-        {
-          data && setMovies(data.results);
-        }
+        data && setMovies(data.results);
       } catch (error) {
         alert('Виникла помилка');
       } finally {
