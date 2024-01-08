@@ -11,7 +11,7 @@ const Home = () => {
       try {
         setIsLoading(true);
         const data = await getMovies();
-
+        console.log(data.results);
         data && setMovies(data.results);
       } catch (error) {
         alert('Виникла помилка');
