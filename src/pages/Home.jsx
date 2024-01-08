@@ -11,14 +11,17 @@ const Home = () => {
       try {
         setIsLoading(true);
         const data = await getMovies();
-        setMovies(data.results);
+
+        {
+          data && setMovies(data.results);
+        }
       } catch (error) {
         alert('Виникла помилка');
       } finally {
         setIsLoading(false);
       }
     };
-    getAllMovies()
+    getAllMovies();
   }, []);
 
   return (
